@@ -226,9 +226,3 @@ ChinstrapData
 df %>% filter(year == 2007 & species == "Chinstrap" & sex == "male") %>% 
   select(species, island, body_mass_g)
 
-#Bonus:
-#You can use R to access datasets available online
-#We will access data about deforestation in Brazil, which available through TidyTuesday
-#https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-04-06/readme.md 
-forest <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-04-06/forest.csv')
-glimpse(forest)
