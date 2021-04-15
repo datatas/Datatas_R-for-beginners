@@ -33,7 +33,7 @@ class(T)
 FALSE
 class(FALSE)
 class(F)
-
+class("false")
 
 # Assigning data to a variable --------------------------------------------
 #Easiest way is using <-
@@ -67,7 +67,7 @@ names
 class(names)
 
 #How do we delete variables? Simple, just use `rm`
-rm(x, y, z, names, answer)
+rm(list = ls())
 
 
 #Simple calculations -----------------------------------------------------
@@ -150,3 +150,5 @@ y <= 15
 #We can save whether the condition was met or not
 z <- x == 10
 z
+x = 10
+x

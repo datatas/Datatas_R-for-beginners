@@ -12,7 +12,8 @@ library(tidyverse)
 #You can use R to access datasets available online
 #We will access data about deforestation around the world, which available through TidyTuesday
 #https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-04-06/readme.md 
-forest <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-04-06/forest.csv') %>% 
+forest <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-04-06/forest.csv')
+forest %>% 
   glimpse()
 
 
@@ -100,13 +101,13 @@ NewVec
 for(i in 1:nrow(forest)){
   forest$ID[i] <- i
 }
-head(forest)
+tail(forest, n = 10)
 
 #Tidyverse solution - activate magittr package
 library(magrittr)
 
-forest %>% 
-  rowid_to_column("ID2") %T>% #This pipe helps you see an intermdiate step
+forest <- forest %>% 
+  rowid_to_column("ID2") %T>% #This pipe helps you see an intermediate step
   print(head()) %>% 
   tail()
 
@@ -181,15 +182,15 @@ for(i in 1:20){
 #We can make things more complex, so for example, we can say the loop must break
 #when the counter is 5. But this time, we will print odd  numbers
 for(i in forest$ID){
-  #Si el ID es par entonces seguir al siguiente paso
+  #If i is even then skip to the next step
   if(i%%2 == 0){
     next
   }
-  #Si el ID es mayor a 5 romper
+  #If i is over 5 then break the loop
   if(i > 5){
     break
   }
-  #En cualquier otro caso imprimir
+  #In any other case
   print(forest[i,])
 }
 
