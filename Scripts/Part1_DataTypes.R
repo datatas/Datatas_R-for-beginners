@@ -138,7 +138,7 @@ class(x)
 #NaN - Not a number
 y <- 0/0
 y
-class(y)
+class(y) 
 
 
 # How can we use booleans? ------------------------------------------------
